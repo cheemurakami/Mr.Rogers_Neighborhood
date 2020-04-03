@@ -8,16 +8,21 @@ function dispNum(number){
 };
 
 function beep(number){
-  var dispNumArray = dispNum(number);
-  if(dispNumArray.includes(1)){
-      dispNumArray[1] = '"Beep!"'
+  var dispNumArray = dispNum(number).toString().split('');
+  for(var i = 0; i<dispNumArray.length; i++){
+    if (dispNumArray[i] == 1){
+      dispNumArray[i] = '"Beep!"'
+    }
   }
-  if(dispNumArray.includes(2)){
-    dispNumArray[2] = '"Boop!"'
-  }
-  if(dispNumArray.includes(3)){
-    dispNumArray[3] = '"Won\'t you be my neighbor?"'
-  }
+  // if(dispNumArray.includes(1)){
+  //     dispNumArray[1] = '"Beep!"'
+  // }
+  // if(dispNumArray.includes(2)){
+  //   dispNumArray[2] = '"Boop!"'
+  // }
+  // if(dispNumArray.includes(3)){
+  //   dispNumArray[3] = '"Won\'t you be my neighbor?"'
+  // }
   return dispNumArray;
 }
 
@@ -31,9 +36,18 @@ function overTen(number){
   var numStArray = numOverTenArray; //[10,11,12] '' してない
     for(var i = 0; i<numStArray.length; i++){
       var placeArray = numStArray[i].toString().split('')
-      if((placeArray[0] == 1) && (placeArray[1] < 1)){
-        numStArray[i] = '"Boop!"'
+      if(placeArray.includes(1)){
+        numStArray[i] = '"Beep!"'
       }
+      // if((placeArray[0] == 1) && (placeArray[1] < 1)){
+      //   numStArray[i] = '"Beep!"'
+      // }
+      // if ((placeArray[0] == 1) && (placeArray[1] < 2)){
+      //   numStArray[i] = '"Beep!"'
+      // }
+      // if ((placeArray[0] == 1) && (placeArray[1] < 3)){
+      //   numStArray[i] = '"Boop!"'
+      // } 
     }
       
   return numStArray;
