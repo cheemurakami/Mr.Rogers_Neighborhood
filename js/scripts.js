@@ -28,10 +28,18 @@ function overTen(number){
       numOverTenArray.push(i);
     } 
   }
-  // return
-   numOverTenArray.toString();
-   
+  var numStArray = numOverTenArray; //[10,11,12] '' してない
+    for(var i = 0; i<numStArray.length; i++){
+      var placeArray = numStArray[i].toString().split('')
+      if((placeArray[0] == 1) && (placeArray[1] < 1)){
+        numStArray[i] = '"Boop!"'
+      }
+    }
+      
+  return numStArray;
   }
+
+
 
 
 $(document).ready(function(){
@@ -41,10 +49,12 @@ $(document).ready(function(){
     var answerArray = dispNum(userInput);
     var beepMessage = beep(userInput);
     var overTenMessage = overTen(userInput);
+    
 
     $(".answer").text(beepMessage);
     console.log(answerArray);
     console.log(beepMessage);
     console.log(overTenMessage);
+   
   });
 });
