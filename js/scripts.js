@@ -1,6 +1,6 @@
 function dispNum(number){
   var numArray = [];
-  for(i=0; i<=number; i++){
+  for(var i=0; i<=number; i++){
     numArray.push(i);
   } 
   numArray[0] = '"0"';
@@ -27,16 +27,17 @@ function overTen(number){
     for(i=10; i<=number; i++){
       numOverTenArray.push(i);
     } 
-    return numOverTenArray;
   }
-  
-}
+  // return
+   numOverTenArray.toString();
+   
+  }
 
 
 $(document).ready(function(){
   $("#form-container").submit(function(event){
     event.preventDefault();
-    var userInput = $("#user-input").val();
+    var userInput = ($("#user-input").val());
     var answerArray = dispNum(userInput);
     var beepMessage = beep(userInput);
     var overTenMessage = overTen(userInput);
